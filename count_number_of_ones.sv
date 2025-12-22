@@ -1,8 +1,13 @@
 // Testbench
 module top;  
   initial begin
-    static int number = $urandom();
-    static int count = 0;   
+    int unsigned number = $urandom();
+    int unsigned count = 0;
+    int unsigned tmp = 0;
+    
+    tmp = number;
+    
+     
     
     // INSTRUCTIONS:
     // Write SystemVerilog code to count how many
@@ -16,7 +21,13 @@ module top;
     
 
     // >>> WRITE YOUR CODE HERE <<<
-    
+    while (tmp) begin
+      if (tmp & 1) begin
+        $display("count: %0d", count);
+        count += 1;
+      end
+      tmp = tmp >> 1;
+    end
 
     $display("number orig: 32'b%b", number);
     $display("count: %0d", count);
