@@ -20,6 +20,8 @@ Is basically as a RESTART, to the value erasing the value every new compilation,
 
 **Static variable** gets intialized at the beginning at some memory location, and in future accesses to this variable from different threads or processes access the same memory location. 
 
+If I declare the function static, everything becomes static, however, you will still need in some simulators to add the "static" word before the int.
+
 By default functions and variables are automatic.
 
 
