@@ -20,6 +20,7 @@ Is basically as a RESTART, to the value erasing the value every new compilation,
 
 **Static variable** gets intialized at the beginning at some memory location, and in future accesses to this variable from different threads or processes access the same memory location. 
 
+By default functions and variables are automatic.
 
 
 
