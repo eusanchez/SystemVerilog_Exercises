@@ -1,6 +1,6 @@
 ## Classes OOP
 
-# Inheritance
+### Inheritance
 
 Example in **class_inheritance.sv** .
 
