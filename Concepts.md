@@ -24,6 +24,20 @@ If I declare the function static, everything becomes static, however, you will s
 
 By default functions and variables are automatic.
 
+## Packed/Unpacked Structures
+
+A structure containt elements of different data types which can be reference as an individual or as a whole. 
+
+Example:
+```
+typedef struct {
+  		string fruit;
+  		int    count;
+  		byte 	 expiry;
+	} st_fruit;
+```
+
+** TO BE CONTINUED. **
 
 
 
