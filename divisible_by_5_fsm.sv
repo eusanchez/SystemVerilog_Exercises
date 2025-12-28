@@ -99,3 +99,6 @@ module tb_divisible_by_5;
     end
 
 endmodule
+
+
+/// https://www.edaplayground.com/x/Xg5U
