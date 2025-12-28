@@ -39,6 +39,21 @@ typedef struct {
 
 ** TO BE CONTINUED. **
 
+## Function vrs Task
+### Function
+- Must execute in zero simulation time
+- CAN'T CONTAIN TIME
+- Returns a value, but also allows to use *void* not returning nothing
+- Can only call other functions
+- Generally synthesizable
+
+### Task
+- Can contain time-consuming statements (Ex: #1; )
+- CAN'T RETURN A VALUE
+- Can call both tasks and functions
+- Not synthesizable
+
+
 
 
 
