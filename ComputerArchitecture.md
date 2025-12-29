@@ -20,4 +20,16 @@ If it's not ready .... STALL.
     - Load : memory -> register
 5. Write Back (WB)
 
-
+## Hazards in Pipelines 
+1. Strucutural Hazards
+    - When two or more instructions require access to the same hardware resource simultaneously.
+2. Data Hazards
+    - One instruction depend on the result of the previous instruction 
+    - Types:
+        1. RAW
+        2. WAR
+        3. WAW
+    - **Solution**: Fowarding, instruction scheduling.
+3. Control Hazards
+    - Arises when the flow of instruction execution is altered by branch or jump instructions. 
+    - **Solution**: Branch prediction, speculative execution, branch target buffers (BTB)

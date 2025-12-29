@@ -53,6 +53,38 @@ typedef struct {
 - Can call both tasks and functions
 - Not synthesizable
 
+## Modport
+Indicates the directions of signals. 
+
+Example using an interface and RTL:
+```
+interface ms_if (input clk);
+  logic sready;      // Indicates if slave is ready to accept data
+  logic rstn;        // Active low reset
+  logic [1:0] addr;  // Address
+  logic [7:0] data;  // Data
+
+  modport slave ( input addr, data, rstn, clk,
+                 output sready);
+
+  modport master ( output addr, data,
+                  input  clk, sready, rstn);
+endinterface
+```
+
+```
+module master ( ms_if.master mif);
+	always @ (posedge mif.clk) begin
+
+  	// If reset is applied, set addr and data to default values
+    if (! mif.rstn) begin
+      mif.addr <= 0;
+      mif.data <= 0;
+
+    .....
+endmodule
+```
+
 
 
 
