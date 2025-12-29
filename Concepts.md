@@ -85,6 +85,48 @@ module master ( ms_if.master mif);
 endmodule
 ```
 
+## Shallow vs Deep Copy
+
+**Shallow copy**: Copies only the reference (handle), both variables point to the same underlying object. If one is change the other one have the changes. 
+
+```
+module tb;
+  Packet p1, p2;
+
+  initial begin
+    p1 = new();
+    p1.data = 10;
+
+    p2 = p1;          // SHALLOW copy
+    p2.data = 20;
+
+    $display("p1.data = %0d", p1.data);
+    $display("p2.data = %0d", p2.data);
+  end
+endmodule
+```
+
+**Deep copy**: Copies the entire object, create a new independent object. If one change, the other one is not affected. 
+
+```
+module tb;
+  Packet p1, p2;
+
+  initial begin
+    p1 = new();
+    p1.data = 10;
+
+    p2 = new();
+    p2.data = p1.data;   // manual deep copy
+    p2.data = 20;
+
+    $display("p1.data = %0d", p1.data);
+    $display("p2.data = %0d", p2.data);
+  end
+endmodule
+
+```
+
 
 
 
