@@ -160,6 +160,10 @@ endmodule
 ```
 
 
+## Fork - join 
+For every fork and join we need an **AUTOMATIC** task, otherwise the last function call will be repeated This is because multiple threads call the same task and share the same variable in tool simulation memory. To initiate different copies of the task, the task MUST be *automatic*. 
+
+
 
 
 

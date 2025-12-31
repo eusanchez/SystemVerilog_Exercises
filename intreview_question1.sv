@@ -1,3 +1,5 @@
+Do a something that calculates the area of the shapes, and print at the end  shape area. 
+
 ///////////////////////
 /// USING FUNCTION ///
 /////////////////////
