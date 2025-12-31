@@ -16,13 +16,45 @@ Example in **virtual_and_nonvirtual.sv** .
 
 **Automatic variable** get initialized every time the scope it is declared gets executed and its stored in a different location every time.
 
-Is basically as a RESTART, to the value erasing the value every new compilation, to replacing it to another one.
+Is basically as a RESTART, to the value erasing the value every new compilation, to replacing it to another one. Automatic can be used in functions, tasks, block (initial and always)
+
+Example using functions:
+```
+function automatic int calc_area(shape_t s);
+  int area;
+  area = s.width * s.height;
+  return area;
+endfunction
+```
+
+Example using tasks:
+```
+task automatic print_area(shape_t s);
+  int area;
+  area = s.width * s.height;
+  $display("area=%0d", area);
+endtask
+```
+
+Example using initial..begin end:
+```
+initial automatic begin
+  int x;
+  x = 5;
+end
+```
+
+Functions by defect are AUTOMATIC. 
+
+Example with testbench in function_automatic.sv
+
 
 **Static variable** gets intialized at the beginning at some memory location, and in future accesses to this variable from different threads or processes access the same memory location. 
 
 If I declare the function static, everything becomes static, however, you will still need in some simulators to add the "static" word before the int.
 
-By default functions and variables are automatic.
+Tasks by defect are STATIC.
+
 
 ## Packed/Unpacked Structures
 
