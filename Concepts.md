@@ -85,6 +85,8 @@ typedef struct {
 - Can call both tasks and functions
 - Not synthesizable
 
+*Interview example in interview_question3.sv*
+
 ## Modport
 Indicates the directions of signals. 
 
