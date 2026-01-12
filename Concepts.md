@@ -1,5 +1,10 @@
 ## Classes OOP
 
+### Polymorphism
+The same method call can behave differently depending on the actual object type. The decision of what will happen, will happen at *runtime*.
+
+Polymorphism only works with ```virtual``` methods (in SystemVerilog/UVM). If a method is not virtual, the simulator will decide from that which method to call. 
+
 ### Inheritance
 
 Example in **class_inheritance.sv** .
@@ -164,6 +169,14 @@ endmodule
 
 ## Fork - join 
 For every fork and join we need an **AUTOMATIC** task, otherwise the last function call will be repeated This is because multiple threads call the same task and share the same variable in tool simulation memory. To initiate different copies of the task, the task MUST be *automatic*. 
+
+## Bit vs Byte
+Bit is the smallest unit of digital information, it represents either 1 or 0. 
+
+Byte is the large unit of digital information made up of eight bits. 
+
+
+** 1 Byte = 8 Bits **
 
 
 
