@@ -170,13 +170,29 @@ endmodule
 ## Fork - join 
 For every fork and join we need an **AUTOMATIC** task, otherwise the last function call will be repeated This is because multiple threads call the same task and share the same variable in tool simulation memory. To initiate different copies of the task, the task MUST be *automatic*. 
 
+There are three types:
+1. Fork-join
+2. Fork-join_none
+3. Fork-join_any
+
 ## Bit vs Byte
 Bit is the smallest unit of digital information, it represents either 1 or 0. 
 
 Byte is the large unit of digital information made up of eight bits. 
 
-
 ** 1 Byte = 8 Bits **
+
+## $clog2
+
+Number of ones possible in a value. 
+
+Example:
+```
+$clog2(2) --> 1 bit
+$clog2(15) --> 4 bit --> 15 in binary is 1111 which is 4 bits that can be 1. 
+```
+
+2 Values can be represented using only 1 bit --> 1 and 0.
 
 
 
