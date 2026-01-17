@@ -194,6 +194,10 @@ $clog2(15) --> 4 bit --> 15 in binary is 1111 which is 4 bits that can be 1.
 
 2 Values can be represented using only 1 bit --> 1 and 0.
 
+## & vs && 
+
+
+
 
 
 
