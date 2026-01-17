@@ -18,7 +18,6 @@
 // Output signals during reset
 // out - 1 when resetn is active (the first 1 of the Fibonacci sequence)
 
-// FIRST VERSION
 module model #(parameter
   DATA_WIDTH=32
 ) (
@@ -27,11 +26,10 @@ module model #(parameter
   output logic [DATA_WIDTH-1:0] out
 );
 
-logic [DATA_WIDTH-1:0] first_number, second_number, saved;
+logic [DATA_WIDTH-1:0] first_number, second_number; 
 
 always_comb begin
   if(resetn) begin
-    saved = first_number + second_number;
     out = first_number;
   end
 end
@@ -43,10 +41,8 @@ always_ff @(posedge clk or negedge resetn) begin
   end
   else begin
     first_number <= second_number;
-    second_number <= saved;
+    second_number <= second_number + first_number;
   end
-end
-
-
+end 
 
 endmodule
