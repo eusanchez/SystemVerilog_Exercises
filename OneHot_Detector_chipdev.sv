@@ -14,7 +14,6 @@ always_comb begin
       counter = counter + 1;
     end
   end
-  $display("number %0b, counter %0d, dout %0b", din, counter, onehot);
 end
 
 assign onehot = (counter == 1) ? 1'b1 : 1'b0;
