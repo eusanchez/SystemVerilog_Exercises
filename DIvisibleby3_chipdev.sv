@@ -5,44 +5,22 @@ module model (
   output logic dout
 );
 
-parameter RES0 = 0,
-          RES1 = 1,
-          RES2 = 2;
+    parameter MODR=0, MOD0=1, MOD1=2, MOD2=3;
+    logic [1:0] state;
 
-logic [1:0] state, next_state;
+    always @(posedge clk) begin
+        if (!resetn) begin
+            state <= MODR;
+        end else begin
+            case (state)
+                MODR: state <= (din ? MOD1 : MOD0);
+                MOD0: state <= (din ? MOD1 : MOD0);
+                MOD1: state <= (din ? MOD0 : MOD2);
+                MOD2: state <= (din ? MOD2 : MOD1);
+            endcase
+        end
+    end
 
-always_ff @(posedge clk) begin
-  if(!resetn) begin
-    state <= RESET;
-  end else begin
-    state <= next_state;
-  end
-end
-
-always_comb begin
-  case(state) 
-  RESET: begin
-    dout = '0;
-    next_state = (value % 3 == 0) ? RES0 : (value % 3 == 1) ? RES1 : RES2;
-  end
-  RES1: begin
-    dout = '0;
-    next_state = (value == 0) ? RES0 : ( value % 3 == 1) ? RES1 : RES2; 
-  end
-  RES2: begin
-    dout = '0;
-    next_state = (value == 0) ? RES0 : ( value % 3 == 1) ? RES1 : RES2;  
-
-  end
-  RES0: begin
-    dout = '1;
-    next_state = (value == 0) ? RES0 : ( value % 3 == 1) ? RES1 : RES2; 
-
-  end
-  default: next_state = RESET;  
-  endcase
-
-end
-
+    assign dout = (state == MOD0);
 
 endmodule
