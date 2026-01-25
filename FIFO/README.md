@@ -9,4 +9,4 @@ The read and write pointers of the FIFO are updated synchronously with the clock
 
 Inputs and outputs are:
 
-![Synchronous FIFO I/O](images/sync_fifo.svg)
+![Synchronous FIFO I/O](images/sync_fifo.jpg)
