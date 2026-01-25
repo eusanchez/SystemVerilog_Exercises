@@ -44,10 +44,6 @@
 - empty_o: Asserted when FIFO has no valid data
 
 
-
-
-
-
 ## Synchronous FIFO 
 Its synchronized clock to control the read and write operations. 
 
@@ -72,6 +68,16 @@ This is important because writer and reader do NOT operate at the same rate. FIF
 $$
 \text{Depth} = \frac{\text{Writing Rate} - \text{Reading Rate}}{\text{Clock Frequency}}
 $$
+
+### Example of FIFO memory (DEPTH=4, WIDTH = 8 bits)
+
+| Index   | Data (WIDTH = 8 bits)   |
+|---------|-------------------------|
+| FIFO[0] | b7 b6 b5 b4 b3 b2 b1 b0 |
+| FIFO[1] | b7 b6 b5 b4 b3 b2 b1 b0 |
+| FIFO[2] | b7 b6 b5 b4 b3 b2 b1 b0 |
+| FIFO[3] | b7 b6 b5 b4 b3 b2 b1 b0 |
+
 
 ## I/O ports
 
