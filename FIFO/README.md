@@ -57,6 +57,9 @@ Inputs and outputs are:
 
 ![Synchronous FIFO I/O](images/sync_fifo.svg)
 
+
+![Synchronous FIFO I/O OP 2](images/FIFO_IO.png)
+
 This ones are used to buffer data when the rate of data transfer exceeds the rate of data processing.
 
 ## Depth and width.
