@@ -11,13 +11,11 @@ module fifo #(parameter DEPTH = 32,
     //--------------------------------
     input logic [WIDTH-1:0] wdata_i,
     input logic wr_en_i,
-    output logic full_o,
 
     //--------------------------------
     // Read
     //--------------------------------
     input logic rd_en_i,
-    output logic empty_o,
     output logic [WIDTH-1:0] rdata_o
 );
 
