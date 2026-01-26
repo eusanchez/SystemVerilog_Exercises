@@ -11,19 +11,21 @@ module fifo #(parameter DEPTH = 32,
     //--------------------------------
     input logic [WIDTH-1:0] wdata_i,
     input logic wr_en_i,
+  	output logic full,
 
     //--------------------------------
     // Read
     //--------------------------------
     input logic rd_en_i,
-    output logic [WIDTH-1:0] rdata_o
+  	output logic [WIDTH-1:0] rdata_o,
+  	output logic empty
 );
 
 // Using $clog2 helps determine how many bits the address has to be to achieve the FIFO DEPTH
 localparam ADDR_WIDTH = $clog2(DEPTH);
 
 // Status Flags
-logic full, empty;
+//logic full, empty;
 
 // Read and Write Pointers
 // They need to be of size ADDR_WIDTH since pointers are picking a specific address as its victim.
