@@ -44,7 +44,10 @@ module tb;
                                           (rd_en_i & !empty) |=> (u_sync_fifo.read_pointer == $past(u_sync_fifo.read_pointer)+1));
     
   // Assertion 2.
-  // 
+    // Checks the writer pointer stays the same when (!wr_en_i & full)
+  write_enable_no_full: assert property (@(posedge clk) disable iff (!rst)
+                                          (!wr_en_i & full) |=> (u_sync_fifo.write_pointer == $past(u_sync_fifo.write_pointer)))
+  else $error("[ERROR] Write pointer counter is not working properly");
 
 
   // --------------------------
