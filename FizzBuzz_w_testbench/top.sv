@@ -1,3 +1,4 @@
+// Code your design here
 // Design a circuit that counts incrementally for a maximum number of cycles, MAX_CYCLES.   At all cycles, the circuit should determine whether or not the counter value is evenly divisible by parameters FIZZ, BUZZ, or both.  
 
 // The counter value should monotonically increase when the reset signal (resetn) is de-asserted. The counter sequence is expected to start from 0 and be MAX_CYCLES long, restarting from 0 when MAX_CYCLES is reached (e.g. for MAX_CYCLES = 100:  0, 1, 2, 3, ..., 99, 0, 1, ...).
@@ -30,7 +31,7 @@ module model #(parameter
     output logic fizzbuzz
 );
 
-logic [$clog2(MAX_CYCLES):0] counter = 0;
+logic [$clog2(MAX_CYCLES)-1:0] counter;
 
 always_ff @(posedge clk) begin
     if(resetn) begin
@@ -39,10 +40,9 @@ always_ff @(posedge clk) begin
         end else begin
             counter <= counter + 1;
         end
-    end else
+    end else begin
         counter <= '0;
-
-
+    end
 end
 
 assign fizz = ((counter % FIZZ) == 0);
