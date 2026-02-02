@@ -1,3 +1,5 @@
+// instructions: https://chipdev.io/question/18
+
 module model #(parameter
   DATA_WIDTH=32
 ) (
