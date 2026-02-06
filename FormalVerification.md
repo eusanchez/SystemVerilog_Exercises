@@ -39,4 +39,9 @@ assertion_tag: assert property ( @(posedge clk) disable iff (!reset)
 
 - ##n ##[m:n] delay operators
 
+# Questions
+
+1. What is the difference between ```a ##1 b``` and ```a |=> b``` ?
+    R/ |=> is a **conditional rule**, meaning that is a is 1, then iin the next cycle b has to be 1. Using ## makes an **unconditional pattern**, meaning that is a is 0 then it fails because the pattern is broken, same case when a is 1 but b is 0, in this case both |=> and ## will fail. 
+
 
